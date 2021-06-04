@@ -18,6 +18,10 @@ firebase.initializeApp({
   appId: "1:402861630323:web:6dc57f7d2d8c14ab0c9b06"
 })
 
+if (firebase.apps.length === 0) {
+  firebase.initializeApp({});
+}
+
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
@@ -27,16 +31,19 @@ function App() {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="App">
-      <header>
-        <h1>Messaging App</h1>
-        <SignOut />
+    <div className="bg-light pt-5 pb-5">
+    <div className="container d-flex w-25 bg-dark rounded-3">
+      <div className="row">
+      <header className="fixed-top">
+          <SignOut />
       </header>
-
-      <section>
-        {user ? <Chat /> : <SignIn />}
+      <section className="w-100 p-3">
+        <article>
+          {user ? <Chat /> : <SignIn />}
+        </article>
       </section>
-
+      </div>
+    </div>
     </div>
   );
 }
@@ -99,11 +106,10 @@ function Chat() {
     </main>
 
     <form onSubmit={sendMessage}>
-
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
-
-      <button type="submit" disabled={!formValue}>Send</button>
-
+      <div className="input-group mb-3">
+        <input value={formValue} className="form-control" onChange={(e) => setFormValue(e.target.value)} aria-label="Type message here" aria-describedby="button-send" />
+        <button id="button-send" className="btn btn-outline-secondary" type="submit" disabled={!formValue}>Send</button>
+      </div>
     </form>
   </>)
 }
@@ -115,9 +121,12 @@ function Message(props) {
   const messageStatus = uid === auth.currentUser.uid ? 'sent' : 'read';
 
   return (<>
-    <div className={`message message-${messageStatus}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
-      <p>{text}</p>
+    <div className={`message message-${messageStatus} d-flex justify-content-end align-items-center mb-4`}>
+      
+      <div className="message-text-wrapper me-3 p-2 rounded-2 bg-secondary bg-gradient">
+        <p className="message-text m-0">{text}</p>
+      </div>
+      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} className="message-avatar rounded-circle" />
     </div>
   </>)
 }
