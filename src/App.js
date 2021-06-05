@@ -1,26 +1,28 @@
 import React, { useRef, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import './App.css';
-
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
-import 'firebase/analytics';
+import Login  from "./components/Login";
+import { AuthProvider } from "./contexts/AuthContext"
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-firebase.initializeApp({
-  apiKey: "AIzaSyDLPTDnPCnD4iEty4SdULz0IRLwr72PNTQ",
-  authDomain: "messaging-app-4c475.firebaseapp.com",
-  projectId: "messaging-app-4c475",
-  storageBucket: "messaging-app-4c475.appspot.com",
-  messagingSenderId: "402861630323",
-  appId: "1:402861630323:web:6dc57f7d2d8c14ab0c9b06"
-})
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
 
-if (firebase.apps.length === 0) {
-  firebase.initializeApp({});
-}
+// firebase.initializeApp({
+//   apiKey: "AIzaSyDLPTDnPCnD4iEty4SdULz0IRLwr72PNTQ",
+//   authDomain: "messaging-app-4c475.firebaseapp.com",
+//   projectId: "messaging-app-4c475",
+//   storageBucket: "messaging-app-4c475.appspot.com",
+//   messagingSenderId: "402861630323",
+//   appId: "1:402861630323:web:6dc57f7d2d8c14ab0c9b06"
+// })
+
+// if (firebase.apps.length === 0) {
+//   firebase.initializeApp({});
+// }
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -28,11 +30,19 @@ const firestore = firebase.firestore();
 
 function App() {
 
-  const [user] = useAuthState(auth);
+  // const [user] = useAuthState(auth);
 
   return (
     <div className="bg-light pt-5 pb-5">
-    <div className="container d-flex w-25 bg-dark rounded-3">
+      <Router>
+        <AuthProvider>
+          <Switch>
+            {/* <Route path="/chats" component={Chats} /> */}
+            <Route path="/" component={Login} />
+          </Switch>
+        </AuthProvider>
+      </Router>
+    {/* <div className="container d-flex w-25 bg-dark rounded-3">
       <div className="row">
       <header className="fixed-top">
           <SignOut />
@@ -43,31 +53,31 @@ function App() {
         </article>
       </section>
       </div>
-    </div>
+    </div> */}
     </div>
   );
 }
 
-function SignIn() {
+// function SignIn() {
 
-  const signInWithGoogle = () => {
-    const signInMethod = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(signInMethod);
-  }
+//   const signInWithGoogle = () => {
+//     const signInMethod = new firebase.auth.GoogleAuthProvider();
+//     auth.signInWithPopup(signInMethod);
+//   }
 
-  return (
-    <>
-      <button onClick={signInWithGoogle}>Sign in using Google</button>
-    </>
-  )
+//   return (
+//     <>
+//       <button onClick={signInWithGoogle}>Sign in using Google</button>
+//     </>
+//   )
 
-}
+// }
 
-function SignOut() {
-  return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign Out</button>
-  )
-}
+// function SignOut() {
+//   return auth.currentUser && (
+//     <button onClick={() => auth.signOut()}>Sign Out</button>
+//   )
+// }
 
 
 function Chat() {
