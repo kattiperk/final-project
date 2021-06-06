@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import './App.css';
+import './components/css/Chat.css';
 import Login  from "./components/Login";
+import Chats from "./components/Chats";
 import { AuthProvider } from "./contexts/AuthContext"
 
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -34,14 +36,19 @@ function App() {
 
   return (
     <div className="bg-light pt-5 pb-5">
+      {/* <div className="container d-flex w-25 bg-dark rounded-3"> */}
+      {/* <div className="row"> */}
       <Router>
         <AuthProvider>
           <Switch>
-            {/* <Route path="/chats" component={Chats} /> */}
+            <Route path="/chats" component={Chats} />
+            {/* <Route path="/chats" component={Chat} /> */}
             <Route path="/" component={Login} />
           </Switch>
         </AuthProvider>
       </Router>
+      {/* </div> */}
+      {/* </div> */}
     {/* <div className="container d-flex w-25 bg-dark rounded-3">
       <div className="row">
       <header className="fixed-top">

@@ -7,15 +7,22 @@ const AuthContext = React.createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-    const [loading, setLoadign] = useState(true);
-    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState(null);
     const history = useHistory();
 
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             setUser(user);
-            setLoadign(false);
-            history.push('/chats')
+            setLoading(false);
+            // if(user) history.push('/chats');
+
+            if(user) {
+                history.push('/chats');
+    
+                return;
+            }
+            
         })
     }, [user, history]);
 

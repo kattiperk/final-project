@@ -1,0 +1,27 @@
+.message-avatar {
+    width: 15px;
+  }
+  
+  .message-text-wrapper {
+    position: relative;
+  }
+  .message-text-wrapper:after {
+    content: '';
+    position: absolute;
+    bottom: calc(50% - 4px);
+    right: -6px;
+    width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-width: 4px;
+  border-top-width: 4px;
+  border-left: 6px solid #6c757d;
+  /* 6c757d */
+  }
+  
+    .message-text {
+      font-size: 0.815em;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.33;
+      
+    }
