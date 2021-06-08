@@ -1,0 +1,12 @@
+.nav {
+    height: 60px;
+}
+    .logo {
+        font-family: 'Amatic SC', cursive;
+        font-size: 32px;
+        font-weight: 700;
+        color: white;
+    }
+    .nav + div {
+        height: calc(100vh - 60px);
+    }

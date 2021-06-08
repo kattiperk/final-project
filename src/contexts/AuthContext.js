@@ -15,11 +15,9 @@ export const AuthProvider = ({ children }) => {
         auth.onAuthStateChanged((user) => {
             setUser(user);
             setLoading(false);
-            // if(user) history.push('/chats');
 
             if(user) {
                 history.push('/chats');
-    
                 return;
             }
             
@@ -34,4 +32,3 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     )
 }
-
