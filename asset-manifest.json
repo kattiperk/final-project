@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/kattiperk/final-project/static/css/main.f4d36606.chunk.css",
+    "main.js": "/kattiperk/final-project/static/js/main.ed8ed04f.chunk.js",
+    "main.js.map": "/kattiperk/final-project/static/js/main.ed8ed04f.chunk.js.map",
+    "runtime-main.js": "/kattiperk/final-project/static/js/runtime-main.8cb57b87.js",
+    "runtime-main.js.map": "/kattiperk/final-project/static/js/runtime-main.8cb57b87.js.map",
+    "static/css/2.f83b9687.chunk.css": "/kattiperk/final-project/static/css/2.f83b9687.chunk.css",
+    "static/js/2.1e7557b0.chunk.js": "/kattiperk/final-project/static/js/2.1e7557b0.chunk.js",
+    "static/js/2.1e7557b0.chunk.js.map": "/kattiperk/final-project/static/js/2.1e7557b0.chunk.js.map",
+    "static/js/3.19cad6ba.chunk.js": "/kattiperk/final-project/static/js/3.19cad6ba.chunk.js",
+    "static/js/3.19cad6ba.chunk.js.map": "/kattiperk/final-project/static/js/3.19cad6ba.chunk.js.map",
+    "index.html": "/kattiperk/final-project/index.html",
+    "static/css/2.f83b9687.chunk.css.map": "/kattiperk/final-project/static/css/2.f83b9687.chunk.css.map",
+    "static/css/main.f4d36606.chunk.css.map": "/kattiperk/final-project/static/css/main.f4d36606.chunk.css.map",
+    "static/js/2.1e7557b0.chunk.js.LICENSE.txt": "/kattiperk/final-project/static/js/2.1e7557b0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8cb57b87.js",
+    "static/css/2.f83b9687.chunk.css",
+    "static/js/2.1e7557b0.chunk.js",
+    "static/css/main.f4d36606.chunk.css",
+    "static/js/main.ed8ed04f.chunk.js"
+  ]
+}
